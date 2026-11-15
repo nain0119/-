@@ -1,1 +1,77 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>작은 이야기</title>
+<style>
+body {
+    background: #171923;
+    color: #e5e5ec;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.game {
+    background: #242735;
+    padding: 35px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 550px;
+    box-shadow: 0 5px 25px #0005;
+}
+h1 { color: #b9b6e8; }
+#story {
+    line-height: 2;
+    white-space: pre-line;
+    min-height: 100px;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin-top: 12px;
+    background: #7775a9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+button:hover { background: #9995cc; }
+</style>
+</head>
+<body>
+<div class="game">
+    <h1>작은 이야기</h1>
+    <p id="story">눈을 떠 보니 낯선 방이었다.
+    
+문밖에서 누군가 노크하고 있다.</p>
+    <div id="choices">
+        <button onclick="choose(1)">문을 연다</button>
+        <button onclick="choose(2)">모르는 척한다</button>
+    </div>
+</div>
+
+<script>
+function choose(number) {
+    const story = document.getElementById("story");
+    const choices = document.getElementById("choices");
+
+    if (number === 1) {
+        story.innerText =
+        "문을 열자 낯선 사람이 서 있었다.\n\n그 사람은 당신의 이름을 알고 있었다.";
+    } else {
+        story.innerText =
+        "노크 소리가 멈췄다.\n\n잠시 후 문 아래로 쪽지가 들어왔다.\n\n'안에 있는 거 다 알아.'";
+    }
+
+    choices.innerHTML =
+    '<button onclick="location.reload()">처음으로 돌아가기</button>';
+}
+</script>
+</body>
+</html>
+
